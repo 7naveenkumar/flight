@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flight
+  template:
+    metadata:
+      labels:
+        app: flight
+    spec:
+      containers:
+        - name: cont-1
+          image: naveenkumar30/paytm:flight
+          ports:
+            - containerPort: 80
